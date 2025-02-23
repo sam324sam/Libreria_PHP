@@ -1,16 +1,16 @@
-**# 📚 Gestión de Biblioteca**
+# 📚 Gestión de Biblioteca
 
 🚀 **Aplicación web en PHP para gestionar los fondos de una biblioteca escolar.**  
 Organizada con el patrón MVC y utilizando bases de datos MySQL.
 
-**## 🛠️ Tecnologías utilizadas**
+## 🛠️ Tecnologías utilizadas
 
 - **PHP 8+**
 - **MySQL**
 - **HTML, CSS, JavaScript**
 - **Apache/Nginx**
 
-**## 📂 Estructura del proyecto**
+## 📂 Estructura del proyecto
 
 ```bash
 /biblioteca  
@@ -26,24 +26,24 @@ Organizada con el patrón MVC y utilizando bases de datos MySQL.
 │── README.md       # Documentación  
 ```
 
-**## 🏁 Instalación y configuración**
+## 🏁 Instalación y configuración
 
-**### 1️⃣ Clonar el repositorio**
+### 1️⃣ Clonar el repositorio
 ```bash
 git clone https://github.com/tu_usuario/gestion-biblioteca.git
 cd gestion-biblioteca
 ```
 
-**### 2️⃣ Configurar la base de datos**
-- **Importar el archivo `database.sql` en MySQL.**
-- **Configurar la conexión en `config/database.php`.**
+### 2️⃣ Configurar la base de datos
+- Importar el archivo `database.sql` en MySQL.
+- Configurar la conexión en `config/database.php`.
 
-**### 3️⃣ Ejecutar el servidor local**
+### 3️⃣ Ejecutar el servidor local
 ```bash
 php -S localhost:8000 -t public
 ```
 
-**## 📜 Funcionalidades principales**
+## 📜 Funcionalidades principales
 
 - ✅ **Registro e inicio de sesión de usuarios** 🔐  
 - ✅ **Gestión de libros, revistas y documentos multimedia** 📖 🎥  
@@ -51,18 +51,18 @@ php -S localhost:8000 -t public
 - ✅ **Búsqueda y filtrado de documentos** 🔍  
 - ✅ **Panel de administración para la gestión del sistema** ⚙️  
 
-**## 🤝 Contribuciones**
+## 🤝 Contribuciones
 
 ¡Las contribuciones son bienvenidas! Para contribuir, sigue estos pasos:
-1. **Haz un fork del proyecto** 🍴
-2. **Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`)**
-3. **Realiza los cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`)**
-4. **Sube los cambios a tu fork (`git push origin feature-nueva-funcionalidad`)**
-5. **Abre un Pull Request** 🚀
 
-**## 📄 Licencia**
+1. **Haz un fork del proyecto** 🍴  
+2. **Crea una nueva rama (`git checkout -b feature-nueva-funcionalidad`)**  
+3. **Realiza los cambios y haz commit (`git commit -m 'Añadir nueva funcionalidad'`)**  
+4. **Sube los cambios a tu fork (`git push origin feature-nueva-funcionalidad`)**  
+5. **Abre un Pull Request** 🚀  
 
-Este proyecto está bajo la **licencia MIT**. Puedes usarlo y modificarlo libremente. 📜
+## 📄 Licencia
 
-💡 _**Hecho con ❤️ por [Tu Nombre](https://github.com/tu_usuario)**_
+Este proyecto está bajo la **licencia MIT**. Puedes usarlo y modificarlo libremente. 📜  
 
+💡 _**Hecho con ❤️ por [Danna Patricia]((https://github.com/DannaPatricia)**_
