@@ -64,5 +64,4 @@ php -S localhost:8000 -t public
 
 Este proyecto está bajo la **licencia MIT**. Puedes usarlo y modificarlo libremente. 📜
 
-💡 _**Hecho con ❤️ por [Tu Nombre](https://github.com/tu_usuario)**_
 
