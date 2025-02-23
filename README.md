@@ -1,3 +1,4 @@
+![Estado](https://img.shields.io/badge/Estado-En%20proceso-yellow?style=plastic)
 # 📚 Gestión de Biblioteca
 
 🚀 **Aplicación web en PHP para gestionar los fondos de una biblioteca escolar.**  
