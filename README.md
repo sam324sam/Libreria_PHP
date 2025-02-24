@@ -66,5 +66,4 @@ php -S localhost:8000 -t public
 
 Este proyecto está bajo la **licencia MIT**. Puedes usarlo y modificarlo libremente. 📜  
 
-💡 _**Hecho con ❤️ por [Danna Patricia](https://github.com/DannaPatricia)**_
-y [Samuel Moniz Pereira](https://github.com/sam324sam)**_
+💡 _**Hecho con ❤️ por [Danna Patricia](https://github.com/DannaPatricia) y [Samuel Moniz Pereira](https://github.com/sam324sam)**_
