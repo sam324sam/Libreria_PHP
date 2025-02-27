@@ -1,5 +1,5 @@
 <?php
-include 'models/Documento.php';
+include '../models/Documento.php';
 
 class DocumentoController {
 
