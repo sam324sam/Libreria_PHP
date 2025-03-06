@@ -24,8 +24,8 @@ $documentos = $documentoController->obtenerDocumentos();
                 <span class="nombre-web">Librería</span>
                 <div class="usuario-opciones">
                     <?php
-                     $html = isset($_SESSION['id_usuario'])
-                     ? '<span class = "usuario">'.$_SESSION['nombre_usuario'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>'
+                     $html = isset($_SESSION['id'])
+                     ? '<span class = "usuario">'.$_SESSION['email'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>'
                      : '<a href="../views/usuarios/login.php" class="cerrar-sesion">Iniciar sesión</a>';
                      echo $html;
                     ?>
