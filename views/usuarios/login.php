@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!empty($_SESSION['email'])) {
-    header('Location: ../public/index.php');
+    header('Location: ../../public/');
     exit();
 }
 
@@ -9,7 +9,7 @@ if (isset($_GET["error"])) {
     $error = $_GET["error"];
     echo "<script>alert('$error');</script>";
 }
-echo '
+?>
 
 <!DOCTYPE html>
 <html lang="es">
