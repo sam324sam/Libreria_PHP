@@ -1,4 +1,5 @@
 <?php
+
 require_once '../models/Usuario.php';
 require_once '../config/conexionBd.php';
 
@@ -14,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($modeloUsuario->verificarCredenciales($email, $clave)) {
         $_SESSION['email'] = $email;
-        header("Location: ../public/index.php");
+        header("Location: ../public/");
         exit();
     } else {
         $error = "Usuario o contraseña incorrectos";
