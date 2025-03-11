@@ -2,6 +2,14 @@
 require_once '../models/Prestamo.php';
 require_once '../config/conexionBd.php';
 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 class PrestamoController {
     private $pdo;
     private $prestamoModel;
@@ -20,10 +28,11 @@ class PrestamoController {
             }else{
                 $resultado = $this->prestamoModel->registrarPrestamo($id_usuario, $id_documento);
             }
-
+            header("Location: ../public/index.php?resultado=" . urlencode($resultado));
+        }
+        if ($_SERVER['REQUEST_METHOD'] == 'GET' && !empty($_SESSION['id'])) {
             
         }
-        header("Location: ../public/index.php?resultado=" . urlencode($resultado));
     }
 }
 

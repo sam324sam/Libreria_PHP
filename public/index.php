@@ -25,7 +25,10 @@ $documentos = $documentoController->obtenerDocumentos();
                 <span class="nombre-web">Librería</span>
                 <div class="usuario-opciones">
                     <?php
-                    session_start();
+
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
                     
                     if (isset($_SESSION['id'])) {
                         echo '<span class = "usuario">'.$_SESSION['email'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
@@ -93,7 +96,7 @@ $documentos = $documentoController->obtenerDocumentos();
         </div>
 </footer>
 <script>
-     function filtrarDocumentos() {
+    function filtrarDocumentos() {
         const mensaje = document.getElementById('mensaje');
         const filtro = document.getElementById('buscador').value.toLowerCase();
         const items = document.querySelectorAll('.item-documento');
