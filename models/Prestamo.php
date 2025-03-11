@@ -37,7 +37,7 @@ class Prestamo {
         $disponibles = $this->comprobarExistencias($id_documento);
         $id_disponible = $this->obtenerIdEjemplar($id_documento);
         print_r($id_disponible);
-        if ($disponibles <= 0) {
+        if ($disponibles <= 0 || empty($id_disponible)) {
             return "No hay ejemplares disponibles.";
         }
 
