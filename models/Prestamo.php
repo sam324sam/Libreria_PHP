@@ -46,8 +46,6 @@ class Prestamo {
         $stmt = $this->db->prepare("INSERT INTO prestar (id_usuario, id_ejemplar, fecha_fin) VALUES (?, ?, DATE_ADD(?, INTERVAL 21 DAY))");
         $stmt->execute([$id_usuario, $id_disponible['id'], $fecha->format("Y-m-d H:i:s")]);
 
-        $stmt->execute([$id_usuario, $id_disponible['id'], $fecha->format("Y-m-d H:i:s")]);
-
         // Marcar el ejemplar como prestado
         $stmt = $this->db->prepare("UPDATE ejemplar SET prestado = 1 WHERE id = ?");
         $stmt->execute([$id_disponible['id']]);
