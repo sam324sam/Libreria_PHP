@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!empty($_SESSION['email'])) {
-    header('Location: ../public/index.php');
+    header('Location: ../../public/');
     exit();
 }
 
@@ -9,7 +9,7 @@ if (isset($_GET["error"])) {
     $error = $_GET["error"];
     echo "<script>alert('$error');</script>";
 }
-echo '
+?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -36,10 +36,7 @@ echo '
         <nav class="nav-navegacion" aria-label="nav-navegacion">
             <div class="container-navegacion">
                 <ul class="menu" id="navNavegacion">
-                    <li><a href="../profesorDashboard/listas.html?tipo=alumnos">Alumnos</a></li>
-                    <li><a href="../profesorDashboard/listas.html?tipo=empresas">Empresas</a></li>
-                    <li><a href="../profesorDashboard/menuProfesor.html">Inicio</a></li>
-                    <li><a href="../profesorDashboard/listas.html?tipo=representantes">Representantes</a></li>
+                    <li><a href="../../public/index.php">Inicio</a></li>
                 </ul>
             </div>
         </nav>
