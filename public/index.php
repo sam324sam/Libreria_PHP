@@ -31,7 +31,10 @@ $documentos = $documentoController->obtenerDocumentos();
                     }
                     
                     if (isset($_SESSION['id'])) {
-                        echo '<span class = "usuario">'.$_SESSION['email'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
+                        echo '<span class = "usuario">'.$_SESSION['email'].'</span>
+                        <span><a href="../controllers/PrestamoController.php?ver_prestamos=true" class="cerrar-sesion">Ver documentos prestados</a></span>
+                        <span><a href="../controllers/PrestamoController.php?ver_prestamos_no_devueltos=true" class="cerrar-sesion">Ver documentos no devueltos</a></span>
+                        </span"><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
                     } else{
                         echo '<a href="../views/usuarios/login.php" class="cerrar-sesion">Iniciar sesión</a>';
                     }
@@ -97,6 +100,7 @@ $documentos = $documentoController->obtenerDocumentos();
 </footer>
 <script>
     function filtrarDocumentos() {
+        let hayDocumentos = false;
         const mensaje = document.getElementById('mensaje');
         const filtro = document.getElementById('buscador').value.toLowerCase();
         const items = document.querySelectorAll('.item-documento');
@@ -106,11 +110,14 @@ $documentos = $documentoController->obtenerDocumentos();
             const autor = item.getAttribute('data-autor').toLowerCase();
 
             if (tipo.includes(filtro) || titulo.includes(filtro) || autor.includes(filtro)) {
+                hayDocumentos = true;
                 item.style.display = "block";
                 mensaje.innerHTML = '';
             } else {
-                mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
                 item.style.display = "none";
+            }
+            if(!hayDocumentos){
+                mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
             }
         });
     }

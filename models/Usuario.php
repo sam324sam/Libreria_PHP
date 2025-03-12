@@ -21,4 +21,15 @@ class Usuario {
         }
         return false;
     }
+
+    public function registrarUsuario($nombre, $direccion, $telefono, $curso, $email, $clave) {
+        $stmt = $this->pdo->prepare("INSERT INTO usuario (nombre, direccion, telefono, curso, email, clave) VALUES (?, ?, ?, ?, ?, ?)");
+        return $stmt->execute([$nombre, $direccion, $telefono, $curso, $email, $clave]);
+    }
+
+    public function obtenerUsuarioPorEmail($email) {
+        $stmt = $this->pdo->prepare("SELECT * FROM usuario WHERE email = ?");
+        $stmt->execute([$email]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 }

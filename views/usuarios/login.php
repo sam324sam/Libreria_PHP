@@ -25,21 +25,18 @@ if (isset($_GET["error"])) {
     <header>
         <nav class="nav-usuario" aria-label="nav-usuario">
             <div class="container-usuario">
-                <span class="nombre-web">Gestión FCT</span>
+                <span class="nombre-web">Librería</span>
                 <div class="usuario-opciones">
                     <span class="usuario" id="nombreUsuario"></span>
                     <span class="usuario" id="opcionesAdmin"></span>
-                    <a class="cerrar-sesion" href="http://localhost:3000/logout">Cerrar sesión</a>
+                    <a href="../../views/usuarios/login.php" class="cerrar-sesion">Iniciar sesión</a>
                 </div>
             </div>
         </nav>
         <nav class="nav-navegacion" aria-label="nav-navegacion">
             <div class="container-navegacion">
                 <ul class="menu" id="navNavegacion">
-                    <li><a href="../profesorDashboard/listas.html?tipo=alumnos">Alumnos</a></li>
-                    <li><a href="../profesorDashboard/listas.html?tipo=empresas">Empresas</a></li>
-                    <li><a href="../profesorDashboard/menuProfesor.html">Inicio</a></li>
-                    <li><a href="../profesorDashboard/listas.html?tipo=representantes">Representantes</a></li>
+                    <li><a href="../../public/">Inicio</a></li>
                 </ul>
             </div>
         </nav>
@@ -48,6 +45,7 @@ if (isset($_GET["error"])) {
     <h2>Iniciar sesión</h2>
     <main>
         <form action="../../controllers/UsuarioController.php" class="formulario" method="POST">
+            <input type="hidden" name="login" value="1">
             <div class="input-container">
                 <label for="email">Nombre de usuario:</label>
                 <input type="text" name="email" id="email">
@@ -59,6 +57,7 @@ if (isset($_GET["error"])) {
             <div class="botones">
                 <button class="boton-enviar" type="submit">Ingresar</button>
             </div>
+            <div style="text-align: center;"><a href="registro.php" style="color: blue;">Registrar el usuario</a></div>
         </form>
     </main>
 </body>
