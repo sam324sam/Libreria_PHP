@@ -25,13 +25,17 @@ $documentos = $documentoController->obtenerDocumentos();
                 <span class="nombre-web">Librería</span>
                 <div class="usuario-opciones">
                     <?php
-                    session_start();
+
+                    if (session_status() == PHP_SESSION_NONE) {
+                        session_start();
+                    }
                     
-                    if (isset($_SESSION['email'])) {
+                    if (isset($_SESSION['id'])) {
                         echo '<span class = "usuario">'.$_SESSION['email'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
                     } else{
                         echo '<a href="../views/usuarios/login.php" class="cerrar-sesion">Iniciar sesión</a>';
                     }
+
                     ?>
                 </div>
             </div>
@@ -48,7 +52,15 @@ $documentos = $documentoController->obtenerDocumentos();
         <div class="buscador">
                 <input type="text" id="buscador" placeholder="🔍 Buscar por tipo de documento o nombre..." onkeyup="filtrarDocumentos()">
         </div>
-        <div id = "mensaje"></div>
+        <div id = "mensaje">
+        </div>
+        <div >
+            <?php
+                if ($_SERVER['REQUEST_METHOD'] == "GET" && !empty($_GET['resultado'])) {
+                    echo '<p class = "mensajeAzul">'.$_GET['resultado'].'</p>';
+                }
+            ?>
+        </div>
         <div class="containerDocumentos">
     <?php
     // Verificar si el array de documentos no está vacío
@@ -60,8 +72,16 @@ $documentos = $documentoController->obtenerDocumentos();
                 <p class = "tituloDocumento">' . htmlspecialchars($documento['titulo']) . '</p>
                 <p>' . htmlspecialchars($documento['lista_autores']) . '</p>
                 <p>' . htmlspecialchars($documento['fecha_publicacion']) . '</p>
-                <p>' . htmlspecialchars($documento['descripcion']) . '</p>
-            </div>';
+                <p>' . htmlspecialchars($documento['descripcion']) . '</p>';
+                if (!empty($_SESSION['email'])) {
+                    echo '
+                        <form action="../controllers/PrestamoController.php" method="POST">
+                            <input type="hidden" name="id_documento" value="'.htmlspecialchars($documento['id']).'">
+                            <input type="hidden" name="id_usuario" value="'.htmlspecialchars($_SESSION['id']).'">
+                            <center><button type="submit" class="boton-enviar">Solicitar Préstamo</button></center>
+                        </form>';
+                }
+            echo '</div>';
         }
     } else {
         // Si no hay documentos, mostrar un mensaje
@@ -76,7 +96,7 @@ $documentos = $documentoController->obtenerDocumentos();
         </div>
 </footer>
 <script>
-     function filtrarDocumentos() {
+    function filtrarDocumentos() {
         const mensaje = document.getElementById('mensaje');
         const filtro = document.getElementById('buscador').value.toLowerCase();
         const items = document.querySelectorAll('.item-documento');
