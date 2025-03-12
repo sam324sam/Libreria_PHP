@@ -31,7 +31,10 @@ $documentos = $documentoController->obtenerDocumentos();
                     }
                     
                     if (isset($_SESSION['id'])) {
-                        echo '<span class = "usuario">'.$_SESSION['email'].'</span><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
+                        echo '<span class = "usuario">'.$_SESSION['email'].'</span>
+                        <span><a href="../controllers/PrestamoController.php?ver_prestamos=true" class="cerrar-sesion">Ver documentos prestados</a></span>
+                        <span><a href="../controllers/PrestamoController.php?ver_prestamos_no_devueltos=true" class="cerrar-sesion">Ver documentos no devueltos</a></span>
+                        </span"><a href="../views/usuarios/logout.php" class="cerrar-sesion">Cerrar sesión</a>';
                     } else{
                         echo '<a href="../views/usuarios/login.php" class="cerrar-sesion">Iniciar sesión</a>';
                     }

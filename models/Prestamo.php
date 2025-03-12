@@ -43,4 +43,19 @@ class Prestamo {
 
         return "Préstamo registrado correctamente.";
     }
+
+    // parte para las views
+    public function listarPrestamos($id_usuario){
+        $stmt = $this->db->prepare("SELECT * FROM documento INNER JOIN ejemplar on documento.id = ejemplar.id_documento INNER JOIN prestar on ejemplar.id = prestar.id_ejemplar
+        WHERE prestar.id_usuario = ?");
+        $stmt->execute([$id_usuario]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function listarPrestamosNoDevueltos($id_usuario){
+        $stmt = $this->db->prepare("SELECT * FROM documento INNER JOIN ejemplar on documento.id = ejemplar.id_documento INNER JOIN prestar on ejemplar.id = prestar.id_ejemplar
+        WHERE prestar.id_usuario = ? AND prestar.fecha_fin < NOW()");
+        $stmt->execute([$id_usuario]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
