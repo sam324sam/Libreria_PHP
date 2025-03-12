@@ -92,15 +92,12 @@ if (session_status() == PHP_SESSION_NONE) {
         let hayDocumentos = false;
         const mensaje = document.getElementById('mensaje');
         const filtro = document.getElementById('buscador').value.toLowerCase();
-        // OBTENEMOS TODOS LOS ELEMENTOS A PARTIR DE SU CLASE
         const items = document.querySelectorAll('.item-documento');
-        // ITERAMOS CADA ITEM Y FILTRAMOS POR SUS VALORES DATA
         items.forEach(item => {
             const tipo = item.getAttribute('data-tipo');
             const titulo = item.getAttribute('data-nombre').toLowerCase();
             const autor = item.getAttribute('data-autor').toLowerCase();
-            
-            // SI EL DATA COINCIDE CON LO INSERTADO EN EL BUSCADOR SE MUESTRA
+
             if (tipo.includes(filtro) || titulo.includes(filtro) || autor.includes(filtro)) {
                 hayDocumentos = true;
                 item.style.display = "block";
@@ -108,11 +105,10 @@ if (session_status() == PHP_SESSION_NONE) {
             } else {
                 item.style.display = "none";
             }
+            if(!hayDocumentos){
+                mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
+            }
         });
-
-        if(!hayDocumentos){
-            mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
-        }
     }
     </script>
 </body>

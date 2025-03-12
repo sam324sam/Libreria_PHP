@@ -100,6 +100,7 @@ $documentos = $documentoController->obtenerDocumentos();
 </footer>
 <script>
     function filtrarDocumentos() {
+        let hayDocumentos = false;
         const mensaje = document.getElementById('mensaje');
         const filtro = document.getElementById('buscador').value.toLowerCase();
         const items = document.querySelectorAll('.item-documento');
@@ -109,11 +110,14 @@ $documentos = $documentoController->obtenerDocumentos();
             const autor = item.getAttribute('data-autor').toLowerCase();
 
             if (tipo.includes(filtro) || titulo.includes(filtro) || autor.includes(filtro)) {
+                hayDocumentos = true;
                 item.style.display = "block";
                 mensaje.innerHTML = '';
             } else {
-                mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
                 item.style.display = "none";
+            }
+            if(!hayDocumentos){
+                mensaje.innerHTML = '<p class = "mensaje">No hay documentos disponibles</p>';
             }
         });
     }

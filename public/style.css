@@ -196,6 +196,7 @@ main {
     flex-wrap: wrap;
     margin: auto;
     width: 75%;
+    gap: 1em;
 }
 
 .tituloDocumento{
